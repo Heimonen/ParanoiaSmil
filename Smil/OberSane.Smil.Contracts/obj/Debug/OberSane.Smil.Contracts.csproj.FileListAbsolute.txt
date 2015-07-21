@@ -1,0 +1,5 @@
+C:\Projects\ParanoiaSmil\Smil\OberSane.Smil.Contracts\bin\Debug\OberSane.Smil.Contracts.dll
+C:\Projects\ParanoiaSmil\Smil\OberSane.Smil.Contracts\bin\Debug\OberSane.Smil.Contracts.pdb
+C:\Projects\ParanoiaSmil\Smil\OberSane.Smil.Contracts\obj\Debug\OberSane.Smil.Contracts.csprojResolveAssemblyReference.cache
+C:\Projects\ParanoiaSmil\Smil\OberSane.Smil.Contracts\obj\Debug\OberSane.Smil.Contracts.dll
+C:\Projects\ParanoiaSmil\Smil\OberSane.Smil.Contracts\obj\Debug\OberSane.Smil.Contracts.pdb
