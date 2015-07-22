@@ -73,6 +73,11 @@
   <ItemGroup>
     <Compile Include="ChatConsumer.cs" />
     <Compile Include="ChatMessage.cs" />
+    <Compile Include="commands\CommandParser.cs" />
+    <Compile Include="commands\ComputerMessageCommand.cs" />
+    <Compile Include="commands\ICommand.cs" />
+    <Compile Include="commands\MessageCommand.cs" />
+    <Compile Include="commands\WhoCommand.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

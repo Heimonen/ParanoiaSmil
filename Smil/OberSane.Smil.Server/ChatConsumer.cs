@@ -1,21 +1,33 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using MassTransit;
 using OberSane.Smil.Contracts;
+using OberSane.Smil.Server.commands;
 
 namespace OberSane.Smil.Server
 {
     public class ChatConsumer : IConsumer<IChat>
     {
+
+        private readonly CommandParser _parser;
+
+        public ChatConsumer()
+        {
+            _parser = new CommandParser();
+        }
+
         public Task Consume(ConsumeContext<IChat> context)
         {
-            Console.Write("TXT: " + context.Message.What);
-            Console.Write("  SENT: " + context.Message.When);
-            Console.Write("  PROCESSED: " + DateTime.Now);
-            Console.WriteLine(" (" + System.Threading.Thread.CurrentThread.ManagedThreadId + ")");
+            try
+            {
+                _parser.ParseMessage(context).Execute();
+            }
+            catch (InvalidOperationException e)
+            {
+                Console.Write("Invalid command! Type /help for help ;D");
+            }
+            Console.WriteLine(" (" + Thread.CurrentThread.ManagedThreadId + ")");
             return Task.FromResult(0);
         }
     }
