@@ -1,21 +1,17 @@
 ﻿using System;
-using System.Configuration;
-using MassTransit;
-using MassTransit.Log4NetIntegration.Logging;
-using OberSane.Smil.Contracts;
+using OberSane.Smil.TroubleshooterClient.MessageBus;
 using OberSane.Smil.TroubleshooterClient.Model;
 
 namespace OberSane.Smil.TroubleshooterClient
 {
     public class ChatClient
     {
-        private IBusControl _busControl;
-        private BusHandle _busHandle;
         private string _userName;
+        private readonly MessageBusPublisher _messageBusPublisher;
 
         public ChatClient()
         {
-            InitializeMessageBus();
+            _messageBusPublisher = new MessageBusPublisher();
         }
 
         public void Start()
@@ -34,10 +30,11 @@ namespace OberSane.Smil.TroubleshooterClient
                     What = command,
                     When = DateTime.Now
                 };
-                _busControl.Publish<IChat>(message);
+
+                _messageBusPublisher.Publish(message);
             }
 
-            _busHandle.Stop().Wait();
+            _messageBusPublisher.Stop();
         }
 
         private void InitializeUser()
@@ -57,19 +54,6 @@ namespace OberSane.Smil.TroubleshooterClient
 
             Console.WriteLine(string.Empty);
             Console.WriteLine("> Connected to SMIL Mainframe as user "  + _userName);
-        }
-
-        private void InitializeMessageBus()
-        {
-            Log4NetLogger.Use();
-            _busControl = Bus.Factory.CreateUsingRabbitMq(x =>
-              x.Host(GetDefaultRabbitMqBusUri(), h => { }));
-            _busHandle = _busControl.Start();
-        }
-
-        private static Uri GetDefaultRabbitMqBusUri()
-        {
-            return new Uri(ConfigurationManager.AppSettings[Constants.DefaultRabbitMqBusUri]);
         }
     }
 }
