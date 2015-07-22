@@ -5,7 +5,7 @@ namespace OberSane.Smil.Server
 {
     class ChatMessage : IChat
     {
-        public string What { get; }
-        public DateTime When { get; }
+        public string What { get; set; }
+        public DateTime When { get; set; }
     }
 }
