@@ -30,8 +30,8 @@ namespace OberSane.Smil.TroubleshooterClient.MessageBus
             {
                 var host = x.Host(MessageBusPublisher.GetDefaultRabbitMqBusUri(), h => { });
 
-                x.ReceiveEndpoint(host, "MtPubSubExample_TestSubscriber", e =>
-                  e.Consumer<ServerConsumer>());
+                x.ReceiveEndpoint(host, "OberSane_ServerNotificationSubscriber", e =>
+                  e.Consumer<ServerNotificationConsumer>());
             });
         }
     }

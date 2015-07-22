@@ -6,12 +6,12 @@ namespace OberSane.Smil.TroubleshooterClient
     {
         static void Main(string[] args)
         {
-            //var messageBusSubscriber = new MessageBusSubscriber();
-            //messageBusSubscriber.Start();
+            var messageBusSubscriber = new MessageBusSubscriber();
+            messageBusSubscriber.Start();
             var chatClient = new ChatClient();
             chatClient.Start();
 
-            //messageBusSubscriber.Stop();
+            messageBusSubscriber.Stop();
         }
     }
 }

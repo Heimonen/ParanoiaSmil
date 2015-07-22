@@ -79,7 +79,7 @@
     <Compile Include="ChatClient.cs" />
     <Compile Include="MessageBus\MessageBusPublisher.cs" />
     <Compile Include="MessageBus\MessageBusSubscriber.cs" />
-    <Compile Include="MessageBus\ServerConsumer.cs" />
+    <Compile Include="MessageBus\ServerNotificationConsumer.cs" />
     <Compile Include="Model\ChatMessage.cs" />
     <Compile Include="Model\Constants.cs" />
     <Compile Include="Program.cs" />

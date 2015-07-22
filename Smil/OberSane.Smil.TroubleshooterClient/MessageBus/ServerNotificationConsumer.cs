@@ -5,7 +5,7 @@ using OberSane.Smil.Contracts;
 
 namespace OberSane.Smil.TroubleshooterClient.MessageBus
 {
-    public class ServerConsumer : IConsumer<IServerNotification>
+    public class ServerNotificationConsumer : IConsumer<IServerNotification>
     {
         public Task Consume(ConsumeContext<IServerNotification> context)
         {
