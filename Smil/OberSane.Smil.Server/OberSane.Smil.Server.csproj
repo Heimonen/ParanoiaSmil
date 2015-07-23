@@ -62,6 +62,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -78,6 +79,8 @@
     <Compile Include="commands\ICommand.cs" />
     <Compile Include="commands\MessageCommand.cs" />
     <Compile Include="commands\WhoCommand.cs" />
+    <Compile Include="MessageBus\MessageBusPublisher.cs" />
+    <Compile Include="Model\ServerNotificationMessage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
